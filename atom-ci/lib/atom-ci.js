@@ -16,7 +16,11 @@ export default {
         this.modalPanel = {
             element: document.createElement('div'),
             getTitle: () => 'Continuous Integration',
+            getIconName: () => 'icon-sync',
             getURI: () => 'atom://atom-ci/atom-ci-view',
+            serialize: () => {
+                deserializer: this.atomCiView.serialize()
+            },
             getDefaultLocation: () => 'bottom'
         };
         atom.workspace.open(this.modalPanel);
